@@ -8,9 +8,9 @@ namespace PapaBobs.Domain
 {
 	public class OrderManager
 	{
-		public static void CreateNewOrder()
+		public static void CreateNewOrder(DTO.OrderDTO dto)
 		{
-			Persistence.OrderRepository.CreateNewOrder();
+			Persistence.OrderRepository.CreateNewOrder(dto);
 		}
 	}
 }

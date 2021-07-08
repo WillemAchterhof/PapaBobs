@@ -9,7 +9,7 @@ namespace PapaBobs.DTO
     public class OrderDTO
     {
         public Guid OrderId { get; set; }
-        public Enums.CrustType PizzaSize { get; set; }
+        public Enums.SizeType PizzaSize { get; set; }
         public Enums.CrustType CrustSize { get; set; }
         public bool Sausages { get; set; }
         public bool Pepperoni { get; set; }
