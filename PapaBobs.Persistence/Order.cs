@@ -15,7 +15,7 @@ namespace PapaBobs.Persistence
     public partial class Order
     {
         public System.Guid OrderId { get; set; }
-        public PapaBobs.DTO.Enums.CrustType PizzaSize { get; set; }
+        public PapaBobs.DTO.Enums.SizeType PizzaSize { get; set; }
         public PapaBobs.DTO.Enums.CrustType CrustSize { get; set; }
         public bool Sausages { get; set; }
         public bool Pepperoni { get; set; }
