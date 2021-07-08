@@ -18,5 +18,9 @@ namespace PapaBobs
 		{
 			Domain.OrderManager.CreateNewOrder();
 		}
+		protected void CalculateTotalPrice_TextChanged()
+		{
+
+		}
 	}
 }
