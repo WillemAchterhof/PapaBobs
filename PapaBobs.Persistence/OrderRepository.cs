@@ -14,15 +14,15 @@ namespace PapaBobs.Persistence
 
 			var order = new Order();
 			order.OrderId = Guid.NewGuid();
-			order.PizzaSize = 1;
-			order.CrustSize = 2;
+			order.PizzaSize = DTO.Enums.CrustType.Thick;
+			order.CrustSize = DTO.Enums.CrustType.Thick;
 			order.Onions = true;
 			order.TotalPrize = 16.50M;
 			order.CustomerName = "Test";
 			order.CustomerAddress = "TestAdress";
 			order.CustomerZip = "TestZip";
 			order.CustomerPhone = "TestPhone";
-			order.PaymentMethod = 0;
+			order.PaymentMethod = DTO.Enums.PaymentType.Credit;
 
 			db.Orders.Add(order);
 			db.SaveChanges();

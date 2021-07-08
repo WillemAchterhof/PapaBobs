@@ -37,8 +37,8 @@
             <PropertyRef Name="OrderId" />
           </Key>
           <Property Name="OrderId" Type="Guid" Nullable="false" />
-          <Property Name="PizzaSize" Type="Int32" Nullable="false" />
-          <Property Name="CrustSize" Type="Int32" Nullable="false" />
+          <Property Name="PizzaSize" Type="PapaBobsDbModel.SizeType" Nullable="false" />
+          <Property Name="CrustSize" Type="PapaBobsDbModel.CrustType" Nullable="false" />
           <Property Name="Sausages" Type="Boolean" Nullable="false" />
           <Property Name="Pepperoni" Type="Boolean" Nullable="false" />
           <Property Name="Onions" Type="Boolean" Nullable="false" />
@@ -48,12 +48,15 @@
           <Property Name="CustomerAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CustomerZip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CustomerPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PaymentMethod" Type="Int32" Nullable="false" />
+          <Property Name="PaymentMethod" Type="PapaBobsDbModel.PaymentType" Nullable="false" />
           <Property Name="Completed" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityContainer Name="PapaBobsDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Orders" EntityType="Self.Order" />
         </EntityContainer>
+        <EnumType Name="SizeType" a:ExternalTypeName="PapaBobs.DTO.Enums.CrustType" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        <EnumType Name="CrustType" a:ExternalTypeName="PapaBobs.DTO.Enums.CrustType" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        <EnumType Name="PaymentType" a:ExternalTypeName="PapaBobs.DTO.Enums.PaymentType" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

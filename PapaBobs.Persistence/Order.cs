@@ -15,8 +15,8 @@ namespace PapaBobs.Persistence
     public partial class Order
     {
         public System.Guid OrderId { get; set; }
-        public int PizzaSize { get; set; }
-        public int CrustSize { get; set; }
+        public PapaBobs.DTO.Enums.CrustType PizzaSize { get; set; }
+        public PapaBobs.DTO.Enums.CrustType CrustSize { get; set; }
         public bool Sausages { get; set; }
         public bool Pepperoni { get; set; }
         public bool Onions { get; set; }
@@ -26,7 +26,7 @@ namespace PapaBobs.Persistence
         public string CustomerAddress { get; set; }
         public string CustomerZip { get; set; }
         public string CustomerPhone { get; set; }
-        public int PaymentMethod { get; set; }
+        public PapaBobs.DTO.Enums.PaymentType PaymentMethod { get; set; }
         public bool Completed { get; set; }
     }
 }
