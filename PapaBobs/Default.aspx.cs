@@ -22,7 +22,15 @@ namespace PapaBobs
 		protected void okButton_Click(object sender, EventArgs e)
 		{
 			var dto = GetNewDTO();
-			Domain.OrderManager.CreateNewOrder(dto);
+			try
+			{
+				Domain.OrderManager.CreateNewOrder(dto);
+				Response.Redirect("OrderSuccess.aspx");
+			}
+			catch (Exception ex)
+			{
+				validationLabel.Text = string.Format($"{ex.Message}");
+			}
 		}
 		protected void CalculateTotalPrice_TextChanged(object sender, EventArgs e)
 		{

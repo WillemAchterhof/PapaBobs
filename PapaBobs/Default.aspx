@@ -61,7 +61,7 @@
 
             <asp:Button ID="orderButton" runat="server" Text="Order" CssClass="btn btn-lg btn-primary" OnClick="okButton_Click" />
             <p>&nbsp;</p>
-            <asp:Label ID="validationLabel" runat="server" Text="" Visible="false" CssClass="bg-danger"></asp:Label>
+            <asp:Label ID="validationLabel" runat="server" CssClass="bg-danger"></asp:Label>
             <h3>Total Cost: <asp:Label ID="totalLabel" runat="server" Text=""></asp:Label></h3>
             <p>&nbsp;</p>
             <p>&nbsp;</p>

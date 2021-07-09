@@ -10,7 +10,16 @@ namespace PapaBobs.Domain
 	{
 		public static void CreateNewOrder(DTO.OrderDTO dto)
 		{
-			Persistence.OrderRepository.CreateNewOrder(dto);
+			if (dto.CustomerName.Length == 0)
+			{ throw new Exception("Please, fill in your name!"); }
+			else if (dto.CustomerAddress.Length == 0)
+			{ throw new Exception("We cannot deliver your pizza!<br />Address is missing!"); }
+			else if (dto.CustomerZip.Length == 0)
+			{ throw new Exception("We cannot deliver your pizza with out a correct zip!"); }
+			else if (dto.CustomerPhone.Length == 0)
+			{ throw new Exception("We need your phone to contact  you when we have arrived, or when there are unforseen curcomstances!"); }
+			else
+			{ Persistence.OrderRepository.CreateNewOrder(dto); }
 		}
 	}
 }
