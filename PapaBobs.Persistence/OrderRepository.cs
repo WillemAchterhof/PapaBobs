@@ -30,5 +30,36 @@ namespace PapaBobs.Persistence
 			db.Orders.Add(order);
 			db.SaveChanges();
 		}
+		public static List<DTO.OrderDTO> GetOpenOrders()
+		{
+			PapaBobsDbEntities db = new PapaBobsDbEntities();
+
+			var openOrders = db.Orders.ToList();
+			var openOrdersDTO = new List<DTO.OrderDTO>() ;
+
+			foreach (var dbOpenOrder in openOrders)
+			{
+				var OpenOrderDTO = new DTO.OrderDTO();
+
+				OpenOrderDTO.OrderId = dbOpenOrder.OrderId;
+				OpenOrderDTO.PizzaSize = dbOpenOrder.PizzaSize;
+				OpenOrderDTO.CrustSize = dbOpenOrder.CrustSize;
+				OpenOrderDTO.Sausages = dbOpenOrder.Sausages;
+				OpenOrderDTO.Pepperoni = dbOpenOrder.Pepperoni;
+				OpenOrderDTO.Onions = dbOpenOrder.Onions;
+				OpenOrderDTO.GreenPeppers = dbOpenOrder.GreenPeppers;
+				OpenOrderDTO.TotalPrize = dbOpenOrder.TotalPrize;
+				OpenOrderDTO.CustomerName = dbOpenOrder.CustomerName;
+				OpenOrderDTO.CustomerAddress = dbOpenOrder.CustomerAddress;
+				OpenOrderDTO.CustomerZip = dbOpenOrder.CustomerZip;
+				OpenOrderDTO.CustomerPhone = dbOpenOrder.CustomerPhone;
+				OpenOrderDTO.PaymentMethod = dbOpenOrder.PaymentMethod;
+				OpenOrderDTO.Completed = dbOpenOrder.Completed;
+
+				openOrdersDTO.Add(OpenOrderDTO);
+			}
+
+			return openOrdersDTO;
+		}
 	}
 }

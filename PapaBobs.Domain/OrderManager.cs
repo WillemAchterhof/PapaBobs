@@ -21,5 +21,9 @@ namespace PapaBobs.Domain
 			else
 			{ Persistence.OrderRepository.CreateNewOrder(dto); }
 		}
+		public static List<DTO.OrderDTO> GetOpenOrders()
+		{
+			return Persistence.OrderRepository.GetOpenOrders();
+		}
 	}
 }
