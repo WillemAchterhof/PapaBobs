@@ -43,11 +43,7 @@ namespace PapaBobs
 			string customerZip = zipTextBox.Text;
 			string customerPhone = phoneTextBox.Text;
 
-			DTO.Enums.PaymentType paymentType;
-			if (cashRadioButton.Checked)
-			{ Enum.TryParse("Cash", out paymentType); }
-			else
-			{ Enum.TryParse("Credit", out paymentType); }
+			DTO.Enums.PaymentType paymentType = GetPaymentType();
 
 			return Domain.CreateDTO.GetDTO(pizzaSize, crustSize, sausages, pepperoni, onions, greenPeppers, totalCost, customerName, customerAddres, customerZip, customerPhone, paymentType);
 		}
@@ -56,5 +52,16 @@ namespace PapaBobs
 			decimal totalCost = Domain.GetPizzaPrize.CalculateNewPrize(dto);
 			totalLabel.Text = string.Format($"{totalCost:c}");
 		}
+		private DTO.Enums.PaymentType GetPaymentType()
+		{
+			DTO.Enums.PaymentType paymentType;
+			if (cashRadioButton.Checked)
+			{ paymentType = DTO.Enums.PaymentType.Cash; }
+			else
+			{ paymentType = DTO.Enums.PaymentType.Credit; }
+
+			return paymentType;
+		}
+
 	}
 }
