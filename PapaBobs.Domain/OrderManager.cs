@@ -21,6 +21,11 @@ namespace PapaBobs.Domain
 			else
 			{ Persistence.OrderRepository.CreateNewOrder(dto); }
 		}
+
+		public static void CompleteOrder(Guid orderID)
+		{
+			Persistence.OrderRepository.CompletedOrder(orderID);
+		}
 		public static List<DTO.OrderDTO> GetOpenOrders()
 		{
 			return Persistence.OrderRepository.GetOpenOrders();

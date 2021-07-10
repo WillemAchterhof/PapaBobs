@@ -9,9 +9,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:GridView ID="openOrdersGridView" runat="server" AutoGenerateColumns="False" >
+            <asp:GridView ID="openOrdersGridView" runat="server" AutoGenerateColumns="False" OnRowCommand="openOrdersGridView_RowCommand1" >
 				<Columns>
-					<asp:BoundField DataField="Completed" HeaderText="Completed" />
+					<asp:ButtonField DataTextField="Completed" DataTextFormatString="Complete" HeaderText="Completed" Text="Completed" />
 					<asp:BoundField DataField="OrderID" HeaderText="Order ID" />
 					<asp:BoundField DataField="PizzaSize" HeaderText="Pizza Size" />
 					<asp:BoundField DataField="CrustSize" HeaderText="Crust Size" />
