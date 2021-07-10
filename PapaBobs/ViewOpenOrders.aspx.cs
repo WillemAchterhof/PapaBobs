@@ -11,7 +11,10 @@ namespace PapaBobs
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			var openOrders = Domain.OrderManager.GetOpenOrders();
 
+			openOrdersGridView.DataSource = openOrders;
+			openOrdersGridView.DataBind();
 		}
 	}
 }

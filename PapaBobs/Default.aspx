@@ -8,7 +8,7 @@
 	<link href="Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-	<a href="PlacedOrders.aspx">Placed Orders</a>
+	<a href="ViewOpenOrders.aspx">Placed Orders</a>
     <form id="form1" runat="server">
         <div class="container">
             <div class="page-header">
