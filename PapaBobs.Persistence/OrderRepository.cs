@@ -34,7 +34,7 @@ namespace PapaBobs.Persistence
 		{
 			PapaBobsDbEntities db = new PapaBobsDbEntities();
 
-			var openOrders = db.Orders.ToList();
+			var openOrders = db.Orders.Where(p => p.Completed == false).ToList();
 			var openOrdersDTO = new List<DTO.OrderDTO>() ;
 
 			foreach (var dbOpenOrder in openOrders)
@@ -60,6 +60,14 @@ namespace PapaBobs.Persistence
 			}
 
 			return openOrdersDTO;
+		}
+
+		public static void CompletedOrder(Guid orderID)
+		{
+			var db = new PapaBobsDbEntities();
+			var order = db.Orders.FirstOrDefault(p => p.OrderId == orderID);
+			order.Completed = true;
+			db.SaveChanges();
 		}
 	}
 }

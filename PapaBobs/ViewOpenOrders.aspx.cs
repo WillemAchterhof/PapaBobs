@@ -11,6 +11,23 @@ namespace PapaBobs
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			if (!Page.IsPostBack)
+			{
+				GetOpenOrders();
+			}
+		}
+		protected void openOrdersGridView_RowCommand1(object sender, GridViewCommandEventArgs e)
+		{
+			int index = Convert.ToInt32(e.CommandArgument);
+			GridViewRow row = openOrdersGridView.Rows[index];
+			var value = row.Cells[1].Text.ToString();
+			Guid.TryParse(value, out Guid orderID);
+
+			Domain.OrderManager.CompleteOrder(orderID);
+			GetOpenOrders();
+		}
+		private void GetOpenOrders()
+		{
 			var openOrders = Domain.OrderManager.GetOpenOrders();
 
 			openOrdersGridView.DataSource = openOrders;
